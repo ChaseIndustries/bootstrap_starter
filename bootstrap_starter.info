@@ -27,14 +27,16 @@ regions[page_bottom]    = 'Page bottom'
 stylesheets[all][] = css/base.css
 stylesheets[all][] = css/layout.css
 stylesheets[all][] = css/component.css
-stylesheets[all][] = css/state.css
-stylesheets[all][] = css/theme.css
+stylesheets[all][] = css/modifiers.css
+;; Remove if you want to include jScrollPane (a scrollbar replacement)
+; stylesheets[all][] = css/vendor/jquery.jscrollpane.css
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Scripts
 ;;;;;;;;;;;;;;;;;;;;;
 
-scripts[] = 'js/plugins/respond.min.js'
-scripts[] = 'js/plugins/modernizr.custom.js'
-scripts[] = 'js/plugins/jquery.touchSwipe.min.js'
-
+scripts[] = 'js/vendor/respond.min.js'
+scripts[] = 'js/vendor/modernizr.custom.js'
+scripts[] = 'js/vendor/jquery.touchSwipe.min.js'
+scripts[] = 'js/vendor/jquery.jscrollpane.min.js'
+scripts[] = 'js/vendor/jquery.mousewheel.min.js'

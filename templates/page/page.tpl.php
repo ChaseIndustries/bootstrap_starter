@@ -110,9 +110,9 @@
   </div>
 </header>
 
-<div class="main-container container">
+<div class="site-wrapper container">
 
-  <header role="banner" id="page-header">
+  <header role="banner" id="site-header">
     <?php if (!empty($site_slogan)): ?>
       <p class="lead"><?php print $site_slogan; ?></p>
     <?php endif; ?>
@@ -160,6 +160,6 @@
 
   </div>
 </div>
-<footer class="footer container">
+<footer class="site-footer container">
   <?php print render($page['footer']); ?>
 </footer>
