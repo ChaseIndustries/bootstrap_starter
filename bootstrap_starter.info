@@ -38,5 +38,6 @@ stylesheets[all][] = css/modifiers.css
 scripts[] = 'js/vendor/respond.min.js'
 scripts[] = 'js/vendor/modernizr.custom.js'
 scripts[] = 'js/vendor/jquery.touchSwipe.min.js'
-scripts[] = 'js/vendor/jquery.jscrollpane.min.js'
 scripts[] = 'js/vendor/jquery.mousewheel.min.js'
+;; Remove if you want to include jScrollPane (a scrollbar replacement)
+; scripts[] = 'js/vendor/jquery.jscrollpane.min.js'
