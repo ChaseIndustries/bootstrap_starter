@@ -11,10 +11,10 @@
   docHeight;
   
   function setVars(){ 
-    docHeight    = $(document).outerHeight(),
-    docWidth     = $(document).outerWidth(),
-    winHeight    = $(window).height(),
-    winWidth     = $(window).width();
+    docHeight = $(document).outerHeight(),
+    docWidth  = $(document).outerWidth(),
+    winHeight = $(window).height(),
+    winWidth  = $(window).width();
   }
   
   /**
