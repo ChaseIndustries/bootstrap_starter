@@ -27,32 +27,22 @@
       var maxHeight,items,numSlides;
       $(".carousel").each(function(){
         var self = this,
-        $self = $(this),
-        maxHeight = 0,
-        items = $self.find(".item"),
-        numSlides = items.length;
-        items.height("auto");
-        items.each(function(i){
-          var h = $(this).height();
-          if(h > maxHeight){
-            maxHeight = h;
-          }
-          if(i == numSlides-1){
-            items.height(maxHeight);
-          }
-        }); //end each
-        //set the min height of the carousel to maxheight
-        $self.css({'min-height':maxHeight});
+        $self = $(this);
+        
+        self.maxHeight = 0,
+        self.items = $self.find(".item"),
+        self.numSlides = self.items.length;
+        
         /**
          * Enable swipe support 
          */
         $self.swipe({
           swipe:function(event, direction, distance, duration, fingerCount) {
             if (direction == 'right') {
-              $(this).carousel('prev');
+              $self.carousel('prev');
             }
             else if (direction == 'left') {
-              $(this).carousel('next');
+              $self.carousel('next');
             }
           }
         });
@@ -66,10 +56,36 @@
            } else {
              $self.carousel("next");
            }
-         })
-         
+         });
+         self.setPositions = function(){
+           self.maxHeight = 0;
+           $self.css({"min-height":""});
+           self.items.css({"height":""});
+           self.items.each(function(i){
+              var hidden = false;
+              if($(this).is(":hidden")){
+                hidden = true;
+                $(this).css({"opacity":0,"display":"block"});
+              }
+              var h = $(this).height();
+              if(h > self.maxHeight){
+                self.maxHeight = h;
+              }
+              if(i == self.numSlides-1){
+                self.items.height(self.maxHeight);
+              }
+              if(hidden){
+                $(this).css({"opacity":"","display":""});
+              }
+            });
+            //set the min height of the carousel to self.maxHeight
+            $self.css({'min-height':self.maxHeight});
+         }
+         self.setPositions();
+         $(window).resize(function() {
+            self.setPositions();
+          });
       })
-
     }
   }
   
