@@ -17,6 +17,62 @@
     winWidth  = $(window).width();
   }
   
+  function initCarousels(){
+    /**
+     * Set all carousel slides to be the same height
+     * Prevents the page from 'jumping' on slide change
+     * (thanks bootstrap :-P )
+     */
+    if($(".carousel").length){
+      var maxHeight,items,numSlides;
+      $(".carousel").each(function(){
+        var self = this,
+        $self = $(this),
+        maxHeight = 0,
+        items = $self.find(".item"),
+        numSlides = items.length;
+        items.height("auto");
+        items.each(function(i){
+          var h = $(this).height();
+          if(h > maxHeight){
+            maxHeight = h;
+          }
+          if(i == numSlides-1){
+            items.height(maxHeight);
+          }
+        }); //end each
+        //set the min height of the carousel to maxheight
+        $self.css({'min-height':maxHeight});
+        /**
+         * Enable swipe support 
+         */
+        $self.swipe({
+          swipe:function(event, direction, distance, duration, fingerCount) {
+            if (direction == 'right') {
+              $(this).carousel('prev');
+            }
+            else if (direction == 'left') {
+              $(this).carousel('next');
+            }
+          }
+        });
+        /**
+         * Allow carousel controls to choose the closest
+         * carousel rather than relying on their href attribute
+         */
+         $self.find(".carousel-control").on("click",function(){
+           if($(this).hasClass("left") || $(this).attr("data-slide") == "prev"){
+             $self.carousel("prev"); 
+           } else {
+             $self.carousel("next");
+           }
+         })
+         
+      })
+
+    }
+  }
+  
   /**
    * Swap out svg files for PNGs on unsupporting devices. Modrnizr determines
    * what an unsupporting device is by adding the .no-svg class to the html
@@ -46,6 +102,7 @@
    */
   svgToPng();
   setVars();
+  initCarousels();
 
   /**
    * Stuff to run on resize.

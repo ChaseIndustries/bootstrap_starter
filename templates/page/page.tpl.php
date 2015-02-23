@@ -112,11 +112,7 @@
 
 <div class="site-wrapper container">
 
-  <header role="banner" id="site-header">
-    <?php if (!empty($site_slogan)): ?>
-      <p class="lead"><?php print $site_slogan; ?></p>
-    <?php endif; ?>
-
+  <header role="banner" class="site-header">
     <?php print render($page['header']); ?>
   </header> <!-- /#page-header -->
 
