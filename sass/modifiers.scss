@@ -1,11 +1,58 @@
 /**
- * @file state.scss
- *   Describes how our modules or layouts will look when in a particular state.
- *   Is it hidden or expanded? Is it active or inactive? They are about
- *   describing how a module or layout looks on screens that are smaller or
- *   bigger. They are also about describing how a module might look in
- *   different views like the home page or the inside page.
+ * @file modifiers.scss
+ * Allows classes to be applied on the fly to elements to keep css clutter down and reduce
+ * class duplicates.
  */
 
 @import "vars";
-@import "mixins";
+
+//black
+.base {
+  color:$base;
+}
+
+//blue text
+.highlight-1 {
+  color:$highlight-1;
+}
+
+//orange text
+.highlight-2 {
+  color:$highlight-2;
+}
+
+.larger {
+  font-size:1.2em;
+}
+
+.smaller {
+  font-size:.8em;
+}
+
+.margin-top {
+  margin-top:60px;
+}
+
+.margin-bottom {
+  margin-bottom:60px;
+}
+
+.padding-top {
+  padding-top:60px;
+}
+
+.padding-bottom {
+  padding-bottom:60px;
+}
+
+.heading {
+  font-family: $heading;
+}
+
+// Gives the entire div a blue background with white text
+.dark {
+  background:$highlight-1;
+  * {
+    color:#fff;
+  }
+}

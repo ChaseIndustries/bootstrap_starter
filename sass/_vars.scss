@@ -1,5 +1,12 @@
 @import "compass";
 @import "compass/css3";
+@import "mixins";
+
+//social icons font
+@include font-face("Mono Social Icons Font", font-files("MonoSocialIconsFont-1.10.woff", "MonoSocialIconsFont-1.10.ttf", "MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont"), "MonoSocialIconsFont-1.10.eot", normal, normal);
+
+//BS icons font
+@include font-face("Glyphicons Halflings", font-files("glyphicons-halflings-regular.woff", "glyphicons-halflings-regular.ttf", "glyphicons-halflings-regular.svg#MonoSocialIconsFont"), "glyphicons-halflings-regular.eot", normal, normal);
 
 // Font size
 $font-base: percentage(10 / 16);  // 1rem = 10px
@@ -7,6 +14,8 @@ $font-base: percentage(10 / 16);  // 1rem = 10px
 // Font stacks
 $serif: "Times",serif;
 $sans-serif: "Helvetica",sans-serif;
+$social-icons: "Mono Social Icons Font";
+$bs-icons: "Glyphicons Halflings";
 
 // Colors
 $color-1:black;
