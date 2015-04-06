@@ -37,13 +37,11 @@
          * Enable swipe support 
          */
         $self.swipe({
-          swipe:function(event, direction, distance, duration, fingerCount) {
-            if (direction == 'right') {
+          swipeRight:function(event, direction, distance, duration, fingerCount) {
               $self.carousel('prev');
-            }
-            else if (direction == 'left') {
+          },
+          swipeLeft : function(event, direction, distance, duration, fingerCount) {
               $self.carousel('next');
-            }
           }
         });
         /**
